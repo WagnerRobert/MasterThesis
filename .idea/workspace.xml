@@ -29,19 +29,10 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="2" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="1275">
+            <state line="29" column="2" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1275">
               <folding>
                 <element signature="e#25#43#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="subprocess.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file:///usr/lib/python2.7/subprocess.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="523" column="0" selection-start="16674" selection-end="16674" vertical-scroll-proportion="0.0" vertical-offset="7726" max-vertical-offset="24120">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -87,7 +78,7 @@
       <file leaf-file-name="write.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="208" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
+            <state line="35" column="8" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.67302454" vertical-offset="278" max-vertical-offset="645">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -437,7 +428,11 @@
       <created>1387212954289</created>
       <updated>1387212954289</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added blast">
+      <created>1387213126383</created>
+      <updated>1387213126383</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -605,6 +600,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/lib/python2.7/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="523" column="0" selection-start="16674" selection-end="16674" vertical-scroll-proportion="0.33240223" vertical-offset="7726" max-vertical-offset="24120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="2" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="1275">
@@ -614,16 +616,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/lib/python2.7/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="523" column="0" selection-start="16674" selection-end="16674" vertical-scroll-proportion="0.0" vertical-offset="7726" max-vertical-offset="24120">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="208" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
+        <state line="35" column="8" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.67302454" vertical-offset="278" max-vertical-offset="645">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
