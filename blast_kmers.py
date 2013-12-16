@@ -262,7 +262,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
                 print "" 
                 continue
             sequence = get_sequence(entry)
-            overwrite = False
+            overwrite = True
             write.fasta(tmp, sequence, fasta, overwrite)
             write.blast(tmp, fasta, blast, overwrite)
             tmr = get_transmembrane(entry, sequence)
