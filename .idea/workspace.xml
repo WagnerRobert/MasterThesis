@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/write.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blast_kmers.py" afterPath="$PROJECT_DIR$/blast_kmers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+    <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="added blast">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/write.py" afterPath="$PROJECT_DIR$/write.py" />
     </list>
     <ignored path="MasterThesis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,7 +87,7 @@
       <file leaf-file-name="write.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="0" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
+            <state line="35" column="44" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -431,7 +429,11 @@
       <created>1387203636096</created>
       <updated>1387203636096</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added blast">
+      <created>1387212770684</created>
+      <updated>1387212770684</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -505,7 +507,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="fixed stuff?" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed stuff?" />
+    <MESSAGE value="added blast" />
+    <option name="LAST_COMMIT_MESSAGE" value="added blast" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -616,7 +619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
+        <state line="35" column="44" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
