@@ -1,7 +1,7 @@
 import operator
 import os
-import barplot
-import dotplot
+#import barplot
+
 import Branch
 
 __author__ = 'delur'
@@ -135,7 +135,8 @@ def count_svm(svm_result, tree, svm):
 
 def graph(count_result):
     #barplot.plot(count_result)
-    dotplot.plot(count_result)
+    #dotplot.plot(count_result)
+    pass
 
 def doList(filepath_prepared, protein2location, tree, quant):
     """
@@ -157,6 +158,7 @@ def doList(filepath_prepared, protein2location, tree, quant):
                 #print dirname
                 svm_result = list_svm(os.path.join(filepath_prepared, dirname), protein2location, tree, quant)
                 count_result = count_svm(svm_result, tree[dirname], dirname)
+                #import dotplot
                 #graph(count_result)
                 kmerlist[dirname] = count_result
 
