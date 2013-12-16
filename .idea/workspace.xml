@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="added blast">
+    <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/write.py" afterPath="$PROJECT_DIR$/write.py" />
     </list>
@@ -87,7 +87,7 @@
       <file leaf-file-name="write.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="44" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
+            <state line="35" column="208" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -433,7 +433,11 @@
       <created>1387212770684</created>
       <updated>1387212770684</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added blast">
+      <created>1387212954289</created>
+      <updated>1387212954289</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -619,7 +623,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="44" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
+        <state line="35" column="208" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.6086956" vertical-offset="315" max-vertical-offset="660">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
