@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/read.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blast_kmers.py" afterPath="$PROJECT_DIR$/blast_kmers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/write.py" afterPath="$PROJECT_DIR$/write.py" />
     </list>
     <ignored path="MasterThesis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,7 +67,7 @@
       <file leaf-file-name="blast_kmers.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blast_kmers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="269" column="62" selection-start="6990" selection-end="6999" vertical-scroll-proportion="0.6480447" vertical-offset="3803" max-vertical-offset="4605">
+            <state line="265" column="28" selection-start="6770" selection-end="6770" vertical-scroll-proportion="0.48044693" vertical-offset="3803" max-vertical-offset="4605">
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -89,7 +87,7 @@
       <file leaf-file-name="write.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="8" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="975">
+            <state line="57" column="8" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="975">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -163,8 +161,8 @@
         <option value="$PROJECT_DIR$/quantListing.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/read.py" />
-        <option value="$PROJECT_DIR$/blast_kmers.py" />
         <option value="$PROJECT_DIR$/write.py" />
+        <option value="$PROJECT_DIR$/blast_kmers.py" />
       </list>
     </option>
   </component>
@@ -451,7 +449,11 @@
       <created>1387214930378</created>
       <updated>1387214930378</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added blast read and profile protein uniprot grabbing">
+      <created>1387224302923</created>
+      <updated>1387224302923</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -526,7 +528,8 @@
     </option>
     <MESSAGE value="fixed stuff?" />
     <MESSAGE value="added blast" />
-    <option name="LAST_COMMIT_MESSAGE" value="added blast" />
+    <MESSAGE value="added blast read and profile protein uniprot grabbing" />
+    <option name="LAST_COMMIT_MESSAGE" value="added blast read and profile protein uniprot grabbing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -621,15 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/write.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="8" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="975">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/read.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="27" selection-start="357" selection-end="357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
@@ -637,9 +631,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/write.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="8" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="975">
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/blast_kmers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="269" column="62" selection-start="6990" selection-end="6999" vertical-scroll-proportion="0.6480447" vertical-offset="3803" max-vertical-offset="4605">
+        <state line="265" column="28" selection-start="6770" selection-end="6770" vertical-scroll-proportion="0.48044693" vertical-offset="3803" max-vertical-offset="4605">
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
