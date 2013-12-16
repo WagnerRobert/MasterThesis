@@ -3,7 +3,7 @@ import os
 
 __author__ = 'delur'
 
-import wx
+
 
 app = None
 frame = None
@@ -289,7 +289,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice):
 
 
 
-
+    #import wx
     #draw_sequence(sequence, transmembrane_regions)
 
     return None
