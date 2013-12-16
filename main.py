@@ -26,6 +26,8 @@ filepath_kmerweights = sys.argv[3]
 #filepaths of output files
 filepath_prepared = sys.argv[4]
 uniprot = sys.argv[5]
+blast = sys.argv[6]
+fastapath = sys.argv[7]
 
 protein2location = readResults.read(filepath_result)
 
@@ -48,7 +50,7 @@ kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
 
 import blast_kmers
 slice = 0.0
-precision = blast_kmers.blast(kmerlist, svmlvl, "cellmemb", tree[svmlvl], protein2location, uniprot, slice)
+precision = blast_kmers.blast(kmerlist, svmlvl, "cellmemb", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath)
 
 #import plots
 #values = []

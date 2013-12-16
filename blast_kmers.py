@@ -1,5 +1,6 @@
 import math
 import os
+import write
 
 __author__ = 'delur'
 
@@ -247,7 +248,7 @@ def getEntry(protein, uniprotlocation):
     return entry
 
 
-def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice):
+def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast, fasta):
     counter = 0.0
     precision = 0.0
 
@@ -261,10 +262,13 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice):
                 print "" 
                 continue
             sequence = get_sequence(entry)
+            overwrite = False
+            write.fasta(tmp, sequence, fasta, overwrite)
+            write.blast(tmp, fasta, blast, overwrite)
             tmr = get_transmembrane(entry, sequence)
             kmers = getKmersPositionList(kmerlist[svm].group1proList, sequence, slice)
 
-            #print sequence
+            print sequence
             #print_sequence(sequence, tmr, kmers)
             if '1' in kmers and '=' in tmr:
                 precision += evaluate(sequence, tmr, kmers)
