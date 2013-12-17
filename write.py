@@ -29,7 +29,6 @@ def fasta(name, sequence, fastapath, overwrite):
 def blast(name, fasta, blastpath, overwrite):
     if not os.path.exists(blastpath):
         os.makedirs(blastpath)
-    print os.path.join(blastpath, name + ".blast")
     if os.path.isfile(os.path.join(blastpath, name + ".blast")):
         if overwrite:
             subprocess.call(['/usr/bin/blastpgp', '-F', 'F' ,'-a', '1', '-j', '3' ,'-b', '3000', '-e', '1', '-h', '1e-3', '-d', '/var/tmp/rost_db/data/big/big_80', '-i' ,os.path.join(fasta, name + ".fa"),'-o',os.path.join(blastpath, name + ".blast"), '-C', 'tmpfile.chk', '-Q', 'tmpfile.blastPsiMat'])
@@ -40,6 +39,7 @@ def blast(name, fasta, blastpath, overwrite):
 
 
 def uniprot(proteines, uniprot, overwrite):
+    foundEntries = []
     if not os.path.exists(uniprot):
         os.makedirs(uniprot)
     for protein in proteines:
@@ -48,13 +48,25 @@ def uniprot(proteines, uniprot, overwrite):
         if os.path.isfile(os.path.join(uniprot, tmp + ".txt")):
             if overwrite:
                 response =  urllib2.urlopen("http://www.uniprot.org/uniprot/" + tmp + ".txt")
-                f = open(os.path.join(uniprot, tmp+".txt"), 'w')
-                f.write(response.read() )
-                f.close()
+                entry = response.read()
+                if str(entry) == "":
+                    print "Did not find uniprot entry for: " + tmp + " !"
+                else:
+                    f = open(os.path.join(uniprot, tmp+".txt"), 'w')
+                    f.write(entry )
+                    f.close()
+                    foundEntries.append(tmp)
+            else:
+                foundEntries.append(tmp)
         else:
-           response =  urllib2.urlopen("http://www.uniprot.org/uniprot/" + tmp + ".txt")
-           f = open(os.path.join(uniprot, tmp+".txt"), 'w')
-           f.write(response.read() )
-           f.close()
-
-    return None
+            response =  urllib2.urlopen("http://www.uniprot.org/uniprot/" + tmp + ".txt")
+            entry = response.read()
+            if str(entry) == "":
+                    print "Did not find uniprot entry for: " + tmp + " !"
+            else:
+                f = open(os.path.join(uniprot, tmp+".txt"), 'w')
+                f.write(entry)
+                f.close()
+                foundEntries.append(tmp)
+    print foundEntries
+    return foundEntries

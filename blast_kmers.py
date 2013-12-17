@@ -1,5 +1,7 @@
 import math
 import os
+import sys
+import alignment
 import read
 import write
 
@@ -58,8 +60,13 @@ def get_transmembrane(entry, sequence):
         if entry[i].startswith("FT   TRANSMEM"):
             if "Potential" in entry[i]:
                 pass
+            elif "similarity" in entry[i]:
+                pass
             else:
-                transmembrane.append(entry[i])
+                #print entry
+                #transmembrane.append(entry[i])
+                pass
+            transmembrane.append(entry[i])
 
 
     def cleanup(line):
@@ -253,34 +260,67 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
     counter = 0.0
     precision = 0.0
 
-    for protein in protein2location:
-        if protein2location[protein] == location:
-            tmp = protein.split('-')[0].split('#')[0]
+    reviewcount = 0
+    noreviewcount = 0
+
+    for query_protein in protein2location:
+        if protein2location[query_protein] == location:
+            tmp = query_protein.split('-')[0].split('#')[0]
             print tmp
             entry = getEntry(tmp, uniprot)
             if "Reviewed" not in entry[0]:
                 print "Protein has not been reviewed!"
                 print "" 
                 continue
-            sequence = get_sequence(entry)
+            query_sequence = get_sequence(entry)
+            #print sequence
             overwrite = False
-            write.fasta(tmp, sequence, fasta, overwrite)
+            write.fasta(tmp, query_sequence, fasta, overwrite)
             write.blast(tmp, fasta, blast, overwrite)
-            proteilProteines = read.blast(tmp, blast)
-            write.uniprot(proteilProteines, uniprot, overwrite)
-            tmr = get_transmembrane(entry, sequence)
-            kmers = getKmersPositionList(kmerlist[svm].group1proList, sequence, slice)
+            profileProteins = read.blast(tmp, blast)
+            profileProteins = write.uniprot(profileProteins, uniprot, overwrite)
+            #tmr = get_transmembrane(entry, sequence)
+            #kmers = getKmersPositionList(kmerlist[svm].group1proList, sequence, slice)
 
-            print sequence
+
+            for profile_protein in profileProteins:
+                if tmp == profile_protein:
+                    pass
+                else:
+                    entry = getEntry(profile_protein, uniprot)
+                    if "Reviewed" not in entry[0]:
+                        #print "Protein has not been reviewed!"
+                        noreviewcount += 1
+                        #continue
+                    else:
+                        reviewcount += 1
+
+                    profileprotein_sequence = get_sequence(entry)
+                    #print "\t" + sequence
+                    tmr = get_transmembrane(entry, profileprotein_sequence)
+                    kmers = getKmersPositionList(kmerlist[svm].group1proList, profileprotein_sequence, slice)
+                    if '1' in kmers and '=' in tmr:
+                        precision += evaluate(profileprotein_sequence, tmr, kmers)
+                        counter += 1.0
+                    elif '=' in tmr:
+                        print "No kmer hits under these settings, protein is not counted."
+                    elif '1' in kmers:
+                        #print "protein has no FT TRANSMEM entries that are validated, protein is not counted"
+                        pass
+                    alignment.align(query_sequence, profileprotein_sequence)
+                    sys.exit("Stop.")
+            #print sequence
             #print_sequence(sequence, tmr, kmers)
-            if '1' in kmers and '=' in tmr:
-                precision += evaluate(sequence, tmr, kmers)
-                counter += 1.0
-            elif '=' in tmr:
-                print "No kmer hits under these settings, protein is not counted."
-            elif '1' in kmers:
-                print "protein has no FT TRANSMEM entries that are validated, protein is not counted"
-            print ""
+    #        if '1' in kmers and '=' in tmr:
+    #            precision += evaluate(sequence, tmr, kmers)
+    #            counter += 1.0
+    #        elif '=' in tmr:
+    #            print "No kmer hits under these settings, protein is not counted."
+    #        elif '1' in kmers:
+    #            print "protein has no FT TRANSMEM entries that are validated, protein is not counted"
+    #        print ""
+    print str(reviewcount) + " entries from swissprot."
+    print str(noreviewcount) + " entries from TrEMBL."
     print ""
 
     if counter > 0:
