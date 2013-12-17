@@ -29,7 +29,7 @@ def fasta(name, sequence, fastapath, overwrite):
 def blast(name, fasta, blastpath, overwrite):
     if not os.path.exists(blastpath):
         os.makedirs(blastpath)
-
+    print os.path.join(blastpath, name + ".blast")
     if os.path.isfile(os.path.join(blastpath, name + ".blast")):
         if overwrite:
             subprocess.call(['/usr/bin/blastpgp', '-F', 'F' ,'-a', '1', '-j', '3' ,'-b', '3000', '-e', '1', '-h', '1e-3', '-d', '/var/tmp/rost_db/data/big/big_80', '-i' ,os.path.join(fasta, name + ".fa"),'-o',os.path.join(blastpath, name + ".blast"), '-C', 'tmpfile.chk', '-Q', 'tmpfile.blastPsiMat'])
