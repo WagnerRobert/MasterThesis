@@ -466,15 +466,15 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
                         pass
                     #alignment.align(query_sequence, profileprotein_sequence)
 
-            write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
-            write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
-            msa = read.multiple_sequence_alignment(query_protein_name, paths)
-            matches = kmer_match(kmerlisting, msa)
-            transmembrane_regions = read.polyphobius(query_protein_name, paths)
-            for line in entry:
-                if line.startswith("FT   SIGNAL"):
-                    sys.exit("Found signal!")
-            count_matches(msa[0], matches, transmembrane_regions)
+            #write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
+            #write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
+            #msa = read.multiple_sequence_alignment(query_protein_name, paths)
+            #matches = kmer_match(kmerlisting, msa)
+            #transmembrane_regions = read.polyphobius(query_protein_name, paths)
+            #for line in entry:
+            #    if line.startswith("FT   SIGNAL"):
+            #        sys.exit("Found signal!")
+            #count_matches(msa[0], matches, transmembrane_regions)
             #sys.exit("Stop.")
 
             # evaluation vor the query sequence
