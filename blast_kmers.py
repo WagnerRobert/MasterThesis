@@ -256,49 +256,206 @@ def getEntry(protein, uniprotlocation):
     return entry
 
 
-def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast, fasta):
+def process_query_protein(query_protein, uniprot, overwrite, fasta, kmerlist, blast, slice):
+    query_protein_name = query_protein.split('-')[0].split('#')[0]
+    print query_protein_name
+    entry = getEntry(query_protein_name, uniprot)
+    if "Reviewed" not in entry[0]:
+        print "Protein has not been reviewed!"
+        print ""
+        return "ERROR"
+    query_sequence = get_sequence(entry)
+    #print sequence
+    write.fasta(query_protein_name, query_sequence, fasta, overwrite)
+    write.blast(query_protein_name, fasta, blast, overwrite)
+    profileProteins = read.blast(query_protein_name, blast)
+    profileProteins = write.uniprot(profileProteins, uniprot, overwrite)
+    qtmr = get_transmembrane(entry, query_sequence)
+    qkmers = getKmersPositionList(kmerlist, query_sequence, slice)
+
+    return query_protein_name, entry, query_sequence, profileProteins, qtmr, qkmers
+
+
+def process_profile_protein(profile_protein, uniprot, kmerlisting, noreviewcount, reviewcount , slice):
+    entry = getEntry(profile_protein, uniprot)
+    if "Reviewed" not in entry[0]:
+        #print "Protein has not been reviewed!"
+        noreviewcount += 1
+        #continue
+    else:
+        reviewcount += 1
+
+    profileprotein_sequence = get_sequence(entry)
+    #print "\t" + sequence
+    tmr = get_transmembrane(entry, profileprotein_sequence)
+    kmers = getKmersPositionList(kmerlisting, profileprotein_sequence, slice)
+
+    return entry, profileprotein_sequence, tmr, kmers, noreviewcount, reviewcount
+
+
+def kmer_match(kmerlisting, msa):
+    import re
+    matches = {}
+    for kmer_tuple in kmerlisting:
+        kmer = kmer_tuple[0]
+
+        pattern = ""
+        for letter in kmer:
+            pattern += letter + "[-]*"
+
+        pattern = pattern[0:len(pattern)-4]
+        regex = re.compile(pattern)
+
+        for i in range (len(msa)):
+            name, sequence = msa[i]
+            match = regex.search(sequence)
+            if  match:
+                if name in matches:
+                    pass
+                else:
+                    matches[name] = []
+                matches[name].append(match.span())
+
+    return matches
+
+
+def count_matches(query_protein_sequence, matches, transmembrane_regions):
+    name = query_protein_sequence[0]
+    sequence = query_protein_sequence[1]
+
+    count = [0] * len(sequence)
+    for protein in matches:
+        for start,end in matches[protein]:
+            for j in range(start, end):
+                count[j] += 1
+
+
+    seqText = ""
+    text = ""
+    for number in count:
+        text += str(number) + "\t"
+    for letter in sequence:
+        seqText += letter + "\t"
+    #print seqText
+    #print text
+
+    count2 = []
+    seqText = ""
+    text = ""
+    for i in range(len(sequence)):
+        if sequence[i] == '-':
+            pass
+        else:
+            text += str(count[i])
+            count2 += [count[i]]
+            seqText += sequence[i]
+    #print seqText
+    #print text
+
+    #print len(seqText)
+    #print len(text)
+    #print len(count2)
+
+    import matplotlib.pyplot as plt
+
+    x = range(1, len(seqText)+1)
+    plt.clf()
+    plt.cla()
+    #print len(x)
+    plt.plot(x,count2)
+    plt.ylabel('Frequency')
+    plt.title(name)
+    plt.xticks(x, seqText)
+    ax = plt.gca()
+    ax.yaxis.grid(True)
+
+    for start,end in transmembrane_regions:
+        rect = plt.Rectangle((start - 0.5, -20), end-start, 20, facecolor="#FFFF00")
+        plt.gca().add_patch(rect)
+    #rect.set_alpha(0.5)
+
+    #rect = plt.Rectangle((20 - 0.5, -30), 20, 10, facecolor="#0000FF")
+    #rect.set_alpha(0.5)
+    #plt.gca().add_patch(rect)
+
+
+    #for i in range (0,6):
+    fig = plt.gcf()
+    fig.set_size_inches(18.5*10,10.5)
+    plt.ylim( -30, plt.ylim()[1])
+    #plt.xlim( (i*200,i*200 + 200))
+    plt.savefig("/home/delur/Desktop/master/" + name + ".pdf" ,bbox_inches='tight')
+
+
+
+
+def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast, fasta, multiplefastapath, paths):
+
+    # Variables later used for statistics
     counter = 0.0
     precision = 0.0
-
     reviewcount = 0
     noreviewcount = 0
 
-    for query_protein in protein2location:
-        if protein2location[query_protein] == location:
-            tmp = query_protein.split('-')[0].split('#')[0]
-            print tmp
-            entry = getEntry(tmp, uniprot)
-            if "Reviewed" not in entry[0]:
-                print "Protein has not been reviewed!"
-                print "" 
-                continue
-            query_sequence = get_sequence(entry)
-            #print sequence
-            overwrite = False
-            write.fasta(tmp, query_sequence, fasta, overwrite)
-            write.blast(tmp, fasta, blast, overwrite)
-            profileProteins = read.blast(tmp, blast)
-            profileProteins = write.uniprot(profileProteins, uniprot, overwrite)
-            #tmr = get_transmembrane(entry, sequence)
-            #kmers = getKmersPositionList(kmerlist[svm].group1proList, sequence, slice)
 
+    #start with all proteines in the results.txt file
+    for query_protein in protein2location:
+        #select those that have the desired location
+        if protein2location[query_protein] == location:
+            #for each protein of the desired location:
+            #cleans up the query protein name, removes added additional tags
+            #get the uniprot entry
+            #from that entry get the sequence
+            #use the sequence to blast
+            #from the blast get the profile proteines
+            #also get the transmembrane regions
+            #and get the positions on wich kmers match
+
+            overwrite = False #if override is True, all existent files will be freshly generated
+            kmerlisting = kmerlist[svm].group0proList #kmerlisting contains all kmers that will be searched for
+            query_protein_name, entry, query_sequence, profileProteins, qtmr, qkmers = process_query_protein(query_protein,uniprot, overwrite, fasta, kmerlisting, blast, slice)
+            proteinname_sequence =[]
+            proteinname_sequence.append( (query_protein_name, query_sequence) )
 
             for profile_protein in profileProteins:
-                if tmp == profile_protein:
+                #for each profile protein:
+                #get the uniprot entry
+                #from that entry get the sequence
+                #and the transmembrane regions
+                #and search for kmers in that sequence
+
+                if query_protein_name == profile_protein:
                     pass
                 else:
-                    entry = getEntry(profile_protein, uniprot)
-                    if "Reviewed" not in entry[0]:
-                        #print "Protein has not been reviewed!"
-                        noreviewcount += 1
-                        #continue
-                    else:
-                        reviewcount += 1
+                    #but only if its not the query protein
+                    entry, profileprotein_sequence, tmr, kmers, norev, rev = process_profile_protein(profile_protein, uniprot, kmerlisting, noreviewcount, reviewcount, slice)
+                    noreviewcount = norev
+                    reviewcount = rev
 
-                    profileprotein_sequence = get_sequence(entry)
-                    #print "\t" + sequence
-                    tmr = get_transmembrane(entry, profileprotein_sequence)
-                    kmers = getKmersPositionList(kmerlist[svm].group1proList, profileprotein_sequence, slice)
+                    proteinname_sequence.append( (profile_protein, profileprotein_sequence) )
+
+                    #print query_sequence
+                    #print qkmers
+                    #print profileprotein_sequence
+                    #print kmers
+
+                    #random stuff for the homebrewed alignment, that is properbly no longer needed
+                    #inside_kmer = False
+                    #kmer = ""
+                    #for i in range(len(profileprotein_sequence)):
+                    #
+                    #    if  kmers[i] == " " and not inside_kmer:
+                    #        pass
+                    #    elif kmers[i] != " ":
+                    #        inside_kmer = True
+                    #        kmer += profileprotein_sequence[i]
+                    #    elif kmers[i] == " " and inside_kmer:
+                    #        #kmer = profileprotein_sequence[i - len(kmer)-1] + kmer + profileprotein_sequence[i]
+                    #        print kmer
+                    #        alignment.align(query_sequence, kmer)
+                    #        inside_kmer = False
+                    #        kmer = ""
+
                     if '1' in kmers and '=' in tmr:
                         precision += evaluate(profileprotein_sequence, tmr, kmers)
                         counter += 1.0
@@ -307,8 +464,20 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
                     elif '1' in kmers:
                         #print "protein has no FT TRANSMEM entries that are validated, protein is not counted"
                         pass
-                    alignment.align(query_sequence, profileprotein_sequence)
-                    sys.exit("Stop.")
+                    #alignment.align(query_sequence, profileprotein_sequence)
+
+            write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
+            write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
+            msa = read.multiple_sequence_alignment(query_protein_name, paths)
+            matches = kmer_match(kmerlisting, msa)
+            transmembrane_regions = read.polyphobius(query_protein_name, paths)
+            for line in entry:
+                if line.startswith("FT   SIGNAL"):
+                    sys.exit("Found signal!")
+            count_matches(msa[0], matches, transmembrane_regions)
+            #sys.exit("Stop.")
+
+            # evaluation vor the query sequence
             #print sequence
             #print_sequence(sequence, tmr, kmers)
     #        if '1' in kmers and '=' in tmr:

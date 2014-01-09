@@ -7,7 +7,7 @@ __author__ = 'delur'
 
 def fasta(name, sequence, fastapath, overwrite):
     filetext = ">" + name + "\n"
-    filetext += sequence
+    filetext += sequence + "\n"
 
     if not os.path.exists(fastapath):
         os.makedirs(fastapath)
@@ -27,6 +27,7 @@ def fasta(name, sequence, fastapath, overwrite):
 
 
 def blast(name, fasta, blastpath, overwrite):
+    print blastpath
     if not os.path.exists(blastpath):
         os.makedirs(blastpath)
     if os.path.isfile(os.path.join(blastpath, name + ".blast")):
@@ -70,3 +71,41 @@ def uniprot(proteines, uniprot, overwrite):
                 foundEntries.append(tmp)
     print foundEntries
     return foundEntries
+
+
+def multiple_fasta(proteinname_sequence, multiplefastapath, overwrite):
+
+    filetext = ""
+    for i in range(len(proteinname_sequence)) :
+        name = proteinname_sequence[i][0]
+        sequence = proteinname_sequence[i][1]
+        filetext += ">" + name + "\n"
+        filetext += sequence + "\n\n"
+
+    if not os.path.exists(multiplefastapath):
+        os.makedirs(multiplefastapath)
+
+    if os.path.isfile(os.path.join(multiplefastapath, proteinname_sequence[0][0] + ".fa")):
+        if overwrite:
+            f= open(os.path.join(multiplefastapath, proteinname_sequence[0][0] + ".fa"), 'w')
+            f.write(filetext)
+            f.close()
+    else:
+       f= open(os.path.join(multiplefastapath, proteinname_sequence[0][0] + ".fa"), 'w')
+       f.write(filetext)
+       f.close()
+
+
+    return None
+
+
+def multiple_sequence_alignment(mfasta_name, mfastapath, msapath, overwrite):
+    if not os.path.exists(msapath):
+        os.makedirs(msapath)
+    if os.path.isfile(os.path.join(msapath, mfasta_name + ".msa")):
+        if overwrite:
+            subprocess.call(['/home/delur/Desktop/master/test/clustalo', '-i' ,os.path.join(mfastapath, mfasta_name + ".fa"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--force', '--wrap=9999'])
+    else:
+        subprocess.call(['/home/delur/Desktop/master/test/clustalo', '-i' ,os.path.join(mfastapath, mfasta_name + ".fa"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--wrap=9999'])
+
+    return None

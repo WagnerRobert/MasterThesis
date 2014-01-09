@@ -16,7 +16,8 @@ __author__ = 'delur'
 
 
 
-
+#filepath dict
+paths = {}
 
 #filepaths of input files
 filepath_result = sys.argv[1]
@@ -28,6 +29,10 @@ filepath_prepared = sys.argv[4]
 uniprot = sys.argv[5]
 blast = sys.argv[6]
 fastapath = sys.argv[7]
+multiplefastapath = sys.argv[8]
+paths["mfasta"]= sys.argv[8]
+paths["msa"]= sys.argv[9]
+paths["polyphobius"] = sys.argv[10]
 
 protein2location = readResults.read(filepath_result)
 
@@ -44,13 +49,13 @@ prepareOutput.prepare(filepath_kmerweights, filepath_prepared)
 #calcQuant.calc(filepath_prepared, protein2location, tree)
 
 import quantListing
-svmlvl= "SVM_0"
+svmlvl= "SVM_1"
 quant =0.3
 kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
 
 import blast_kmers
 slice = 0.0
-precision = blast_kmers.blast(kmerlist, svmlvl, "cellmemb", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath)
+precision = blast_kmers.blast(kmerlist, svmlvl, "cytoplas", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths)
 
 #import plots
 #values = []
