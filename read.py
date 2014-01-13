@@ -33,15 +33,16 @@ def multiple_sequence_alignment(protein_name, paths):
 
     i = 0
     for line in f:
+        line = line.rstrip()
         i+=1
         if i > 3:
-            if not line.startswith(" "):
-                name = line.rstrip().split(' ', 1)[0]
-                sequence = line.rstrip().rsplit(' ', 1)[1]
+            if not line == "" and not line.startswith(" "):
+                name = line.split(' ', 1)[0]
+                sequence = line.rsplit(' ', 1)[1]
             #print name + " : " + sequence
             msa.append( (name, sequence))
 
-    print msa
+    #print msa
     f.close()
     return msa
 

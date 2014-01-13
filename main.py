@@ -55,7 +55,7 @@ kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
 
 import blast_kmers
 slice = 0.0
-precision = blast_kmers.blast(kmerlist, svmlvl, "cytoplas", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths)
+precision = blast_kmers.blast(kmerlist, svmlvl, "secreted", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths)
 
 #import plots
 #values = []

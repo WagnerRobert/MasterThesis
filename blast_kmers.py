@@ -319,58 +319,88 @@ def kmer_match(kmerlisting, msa):
     return matches
 
 
-def count_matches(query_protein_sequence, matches, transmembrane_regions):
+def getFeatures(entry):
+    features = {}
+
+    for line in entry:
+        if line.startswith("FT   "):
+            print line
+            tmp = line.rstrip().split()
+            if len(tmp) > 3 :
+                if tmp[1] in features:
+                    pass
+                else:
+                   features[tmp[1]] = []
+
+                try:
+                    start = int(tmp[2])
+                    end = int(tmp[3])
+                    if "By similarity" in line or "Potential" in line or "Propable" in line :
+                        features[tmp[1]].append( (start, end, False) )
+                    else:
+                        features[tmp[1]].append( (start, end, True) )
+                except ValueError:
+                    print "!!!!!!!!!!!!!!!!!!!!!!!!!!!Encountered slight Problem"
+                    continue
+
+
+
+    print features
+    return features
+
+
+def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_regions, entry, numProfileProteins):
     name = query_protein_sequence[0]
     sequence = query_protein_sequence[1]
 
-    count = [0] * len(sequence)
-    for protein in matches:
-        for start,end in matches[protein]:
+    pos_count = [0] * len(sequence)
+    for protein in pos_matches:
+        for start,end in pos_matches[protein]:
             for j in range(start, end):
-                count[j] += 1
+                pos_count[j] += 1
+
+    neg_count = [0] * len(sequence)
+    for protein in neg_matches:
+        for start,end in neg_matches[protein]:
+            for j in range(start, end):
+                neg_count[j] += 1
 
 
-    seqText = ""
-    text = ""
-    for number in count:
-        text += str(number) + "\t"
-    for letter in sequence:
-        seqText += letter + "\t"
-    #print seqText
-    #print text
-
-    count2 = []
-    seqText = ""
+    pos_count_noGaps = []
+    neg_count_noGaps = []
+    seq_noGap = ""
     text = ""
     for i in range(len(sequence)):
         if sequence[i] == '-':
             pass
         else:
-            text += str(count[i])
-            count2 += [count[i]]
-            seqText += sequence[i]
-    #print seqText
-    #print text
+            text += str(pos_count[i])
+            pos_count_noGaps += [pos_count[i]]
+            neg_count_noGaps += [neg_count[i]]
+            seq_noGap += sequence[i]
 
-    #print len(seqText)
-    #print len(text)
-    #print len(count2)
-
+    for i in range(len(pos_count_noGaps)):
+        pos_count_noGaps[i] = pos_count_noGaps[i] * 100 / numProfileProteins
+        neg_count_noGaps[i] = neg_count_noGaps[i] * 100 / numProfileProteins
     import matplotlib.pyplot as plt
 
-    x = range(1, len(seqText)+1)
+    x = range(1, len(seq_noGap)+1)
     plt.clf()
     plt.cla()
     #print len(x)
-    plt.plot(x,count2)
+    plt.plot(x,pos_count_noGaps, color='#336699')
+    plt.plot(x, neg_count_noGaps, color='#CC0000')
     plt.ylabel('Frequency')
     plt.title(name)
-    plt.xticks(x, seqText)
+    plt.xticks(x, seq_noGap)
     ax = plt.gca()
     ax.yaxis.grid(True)
 
+
+    ypos = -20
+    height = 20
     for start,end in transmembrane_regions:
-        rect = plt.Rectangle((start - 0.5, -20), end-start, 20, facecolor="#FFFF00")
+        rect = plt.Rectangle((start - 0.5, ypos), (end-start)+1, height, facecolor="#FFFF00", hatch='\\')
         plt.gca().add_patch(rect)
     #rect.set_alpha(0.5)
 
@@ -378,13 +408,57 @@ def count_matches(query_protein_sequence, matches, transmembrane_regions):
     #rect.set_alpha(0.5)
     #plt.gca().add_patch(rect)
 
+    features = getFeatures(entry)
+
+    for feature in features:
+        if feature == "TURN":
+            color = "#4169e1"
+        elif feature == "STRAND":
+            color = "#8470ff"
+        elif feature == "HELIX":
+            color = "#20b2aa"
+        elif feature == "CHAIN":
+            color = "#000000"
+            continue
+        elif feature == "METAL":
+            color = "#708090"
+        elif feature == "NP_BIND":
+            color = "#eedd82"
+        elif feature == "BINDING":
+            color = "#ff8c00"
+        elif feature == "ACT_SITE":
+            color = "#ff0000"
+        elif feature == "DOMAIN":
+            color = "#32cd32"
+        elif feature == "INIT_MET":
+            color = "#a52a2a"
+        elif feature == "TRANSMEM":
+            color = "#FFFF00"
+        elif feature == "TOPO_DOM":
+            color = "#FF4500"
+        elif feature == "CONFLICT":
+            color = "#000000"
+        else:
+            print feature
+            color = "#FF1493"
+        ypos = ypos - height
+
+        for start,end, experimental in features[feature]:
+            if experimental:
+                rect = plt.Rectangle((start - 0.5, ypos), end-start + 1, height, facecolor=color)
+            else:
+                rect = plt.Rectangle((start - 0.5, ypos), end-start + 1, height, facecolor=color, hatch='//')
+            plt.gca().add_patch(rect)
+
 
     #for i in range (0,6):
     fig = plt.gcf()
-    fig.set_size_inches(18.5*10,10.5)
-    plt.ylim( -30, plt.ylim()[1])
+    fig.set_size_inches(len(x)/9,4)
+    plt.ylim( -10 +ypos, 300)
+    plt.xlim( plt.xlim()[0], len(seq_noGap)+1)
     #plt.xlim( (i*200,i*200 + 200))
-    plt.savefig("/home/delur/Desktop/master/" + name + ".pdf" ,bbox_inches='tight')
+    plt.tight_layout()
+    plt.savefig("/home/delur/Dropbox/MasterThesis/MSA/cellmemb/" + name + ".pdf")
 
 
 
@@ -412,8 +486,9 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             #and get the positions on wich kmers match
 
             overwrite = False #if override is True, all existent files will be freshly generated
-            kmerlisting = kmerlist[svm].group0proList #kmerlisting contains all kmers that will be searched for
-            query_protein_name, entry, query_sequence, profileProteins, qtmr, qkmers = process_query_protein(query_protein,uniprot, overwrite, fasta, kmerlisting, blast, slice)
+            pos_kmerlisting = kmerlist[svm].group1proList #pos_kmerlisting contains all kmers that will be searched for
+            neg_kmerlisting = kmerlist[svm].group1conList
+            query_protein_name, entry, query_sequence, profileProteins, qtmr, qkmers = process_query_protein(query_protein,uniprot, overwrite, fasta, pos_kmerlisting, blast, slice)
             proteinname_sequence =[]
             proteinname_sequence.append( (query_protein_name, query_sequence) )
 
@@ -428,7 +503,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
                     pass
                 else:
                     #but only if its not the query protein
-                    entry, profileprotein_sequence, tmr, kmers, norev, rev = process_profile_protein(profile_protein, uniprot, kmerlisting, noreviewcount, reviewcount, slice)
+                    prof_prot_entry, profileprotein_sequence, tmr, kmers, norev, rev = process_profile_protein(profile_protein, uniprot, pos_kmerlisting, noreviewcount, reviewcount, slice)
                     noreviewcount = norev
                     reviewcount = rev
 
@@ -466,15 +541,16 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
                         pass
                     #alignment.align(query_sequence, profileprotein_sequence)
 
-            #write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
-            #write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
-            #msa = read.multiple_sequence_alignment(query_protein_name, paths)
-            #matches = kmer_match(kmerlisting, msa)
-            #transmembrane_regions = read.polyphobius(query_protein_name, paths)
-            #for line in entry:
-            #    if line.startswith("FT   SIGNAL"):
-            #        sys.exit("Found signal!")
-            #count_matches(msa[0], matches, transmembrane_regions)
+            write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
+            write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
+            msa = read.multiple_sequence_alignment(query_protein_name, paths)
+            pos_matches = kmer_match(pos_kmerlisting, msa)
+            neg_matches = kmer_match(neg_kmerlisting, msa)
+            transmembrane_regions = read.polyphobius(query_protein_name, paths)
+            for line in entry:
+                if line.startswith("FT   SIGNAL"):
+                    sys.exit("Found signal!")
+            #create_plot(msa[0], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins))
             #sys.exit("Stop.")
 
             # evaluation vor the query sequence

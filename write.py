@@ -69,7 +69,7 @@ def uniprot(proteines, uniprot, overwrite):
                 f.write(entry)
                 f.close()
                 foundEntries.append(tmp)
-    print foundEntries
+    #print foundEntries
     return foundEntries
 
 
