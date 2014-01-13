@@ -547,9 +547,9 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             pos_matches = kmer_match(pos_kmerlisting, msa)
             neg_matches = kmer_match(neg_kmerlisting, msa)
             transmembrane_regions = read.polyphobius(query_protein_name, paths)
-            for line in entry:
-                if line.startswith("FT   SIGNAL"):
-                    sys.exit("Found signal!")
+            #for line in entry:
+                #if line.startswith("FT   SIGNAL"):
+                #    sys.exit("Found signal!")
             #create_plot(msa[0], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins))
             #sys.exit("Stop.")
 
