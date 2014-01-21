@@ -134,7 +134,7 @@ def mfasta_add_queryseq(query_protein_name,sequence, paths):
         if query_protein_name in first_header:
             pass
         else:
-            with open(os.path.join(paths["mfasta"], query_protein_name + ".clean"), "+") as f:
+            with open(os.path.join(paths["mfasta"], query_protein_name + ".clean"), "r+") as f:
                 old = f.read()
                 f.seek(0)
                 f.write(">" +  query_protein_name + "\n" + sequence + "\n" + old)
