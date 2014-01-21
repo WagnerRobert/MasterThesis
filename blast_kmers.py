@@ -577,7 +577,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
 
             for name, sequence in msa:
                 if name == query_protein_name:
-                    create_plot(sequence, pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info, paths)
+                    create_plot((name,sequence), pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info, paths)
                     break
             #sys.exit("Stop.")
 
