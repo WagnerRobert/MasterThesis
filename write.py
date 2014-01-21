@@ -117,4 +117,8 @@ def mfasta_cleanup(query_protein_name, path, overwrite):
     for root, dirs, files in os.walk(path):
         for file in files:
             if query_protein_name in file and file.endswith(".fa"):
-                subprocess.call(['uniqueprot', '-i' ,os.path.join(path, file),'-o',os.path.join(path, query_protein_name + ".clean"), '-t', '20'])
+                if os.path.isfile(os.path.join(path, query_protein_name + ".clean")) :
+                    if overwrite:
+                        subprocess.call(['uniqueprot', '-i' ,os.path.join(path, file),'-o',os.path.join(path, query_protein_name + ".clean"), '-t', '20'])
+                else:
+                    subprocess.call(['uniqueprot', '-i' ,os.path.join(path, file),'-o',os.path.join(path, query_protein_name + ".clean"), '-t', '20'])
