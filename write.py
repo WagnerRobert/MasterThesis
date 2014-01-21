@@ -109,3 +109,12 @@ def multiple_sequence_alignment(mfasta_name, mfastapath, msapath, overwrite):
         subprocess.call(['/home/delur/Desktop/master/test/clustalo', '-i' ,os.path.join(mfastapath, mfasta_name + ".fa"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--wrap=9999'])
 
     return None
+
+
+def mfasta_cleanup(query_protein_name, path, overwrite):
+    if not os.path.exists(path):
+        os.makedirs(path)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if query_protein_name in file and file.endswith(".fa"):
+                subprocess.call(['uniqueprot', '-i' ,os.path.join(path, file),'-o',os.path.join(path, query_protein_name + ".clean"), '-t', '20'])

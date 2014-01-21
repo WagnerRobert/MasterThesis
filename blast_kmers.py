@@ -349,7 +349,7 @@ def getFeatures(entry):
     return features
 
 
-def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_regions, entry, numProfileProteins):
+def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_regions, entry, numProfileProteins, resultfile_info):
     name = query_protein_sequence[0]
     sequence = query_protein_sequence[1]
 
@@ -390,12 +390,29 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
     #print len(x)
     plt.plot(x,pos_count_noGaps, color='#336699')
     plt.plot(x, neg_count_noGaps, color='#CC0000')
-    plt.ylabel('Frequency')
-    plt.title(name)
-    plt.xticks(x, seq_noGap)
-    ax = plt.gca()
-    ax.yaxis.grid(True)
+    plt.ylabel('Coverage')
 
+    long_name = ""
+    location = ""
+    confidence = ""
+    for protein in resultfile_info:
+        if name in protein:
+            long_name = protein
+            location = resultfile_info[protein][0]
+            confidence = resultfile_info[protein][1]
+    plt.title(long_name + "|" + location + "|"+ confidence +"|" + str(numProfileProteins) + " Profile Proteins")
+    ax = plt.gca()
+
+
+    plt.xticks(x, seq_noGap)
+
+
+
+
+    ax.set_yticks( [0,50,100,150,200])
+    ax.set_yticklabels(["0", "50", "100", "150", "200"])
+    ax.yaxis.grid(True)
+    #ax.xaxis.grid(True)
 
     ypos = -20
     height = 20
@@ -437,7 +454,9 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
         elif feature == "TOPO_DOM":
             color = "#FF4500"
         elif feature == "CONFLICT":
-            color = "#000000"
+            color = "#40e0d0"
+        elif feature == "SIGNAL":
+            color = "#800080"
         else:
             print feature
             color = "#FF1493"
@@ -453,17 +472,17 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
 
     #for i in range (0,6):
     fig = plt.gcf()
-    fig.set_size_inches(len(x)/9,4)
-    plt.ylim( -10 +ypos, 300)
+    fig.set_size_inches(2+ (len(x)/10),4)
+    plt.ylim( -10 +ypos, 200)
     plt.xlim( plt.xlim()[0], len(seq_noGap)+1)
     #plt.xlim( (i*200,i*200 + 200))
     plt.tight_layout()
-    plt.savefig("/home/delur/Dropbox/MasterThesis/MSA/cellmemb/" + name + ".pdf")
+    plt.savefig("/home/delur/Dropbox/MasterThesis/MSA/cytoplas/" + name + ".pdf")
 
 
 
 
-def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast, fasta, multiplefastapath, paths):
+def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast, fasta, multiplefastapath, paths, resultfile_info):
 
     # Variables later used for statistics
     counter = 0.0
@@ -486,8 +505,8 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             #and get the positions on wich kmers match
 
             overwrite = False #if override is True, all existent files will be freshly generated
-            pos_kmerlisting = kmerlist[svm].group1proList #pos_kmerlisting contains all kmers that will be searched for
-            neg_kmerlisting = kmerlist[svm].group1conList
+            pos_kmerlisting = kmerlist[svm].group0proList #pos_kmerlisting contains all kmers that will be searched for
+            neg_kmerlisting = kmerlist[svm].group0conList
             query_protein_name, entry, query_sequence, profileProteins, qtmr, qkmers = process_query_protein(query_protein,uniprot, overwrite, fasta, pos_kmerlisting, blast, slice)
             proteinname_sequence =[]
             proteinname_sequence.append( (query_protein_name, query_sequence) )
@@ -542,15 +561,14 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
                     #alignment.align(query_sequence, profileprotein_sequence)
 
             write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
+            write.mfasta_cleanup(query_protein_name, paths["mfasta"], overwrite)
             write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
             msa = read.multiple_sequence_alignment(query_protein_name, paths)
             pos_matches = kmer_match(pos_kmerlisting, msa)
             neg_matches = kmer_match(neg_kmerlisting, msa)
             transmembrane_regions = read.polyphobius(query_protein_name, paths)
-            #for line in entry:
-                #if line.startswith("FT   SIGNAL"):
-                #    sys.exit("Found signal!")
-            #create_plot(msa[0], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins))
+
+            create_plot(msa[0], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info)
             #sys.exit("Stop.")
 
             # evaluation vor the query sequence

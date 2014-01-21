@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-
+import read
 
 import readResults
 import readTree
@@ -21,6 +20,7 @@ paths = {}
 
 #filepaths of input files
 filepath_result = sys.argv[1]
+paths["resultfile"] = sys.argv[1]
 filepath_tree = sys.argv[2]
 filepath_kmerweights = sys.argv[3]
 
@@ -35,6 +35,7 @@ paths["msa"]= sys.argv[9]
 paths["polyphobius"] = sys.argv[10]
 
 protein2location = readResults.read(filepath_result)
+resultfile_info = read.resultfile(paths)
 
 #import Uniprot
 #Uniprot.getUniprotEntries(protein2location, uniprot)
@@ -50,12 +51,18 @@ prepareOutput.prepare(filepath_kmerweights, filepath_prepared)
 
 import quantListing
 svmlvl= "SVM_1"
-quant =0.3
+quant =0.1
 kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
+
+
+print "Set to top " + str(quant) + " quant."
+for entry in sorted(kmerlist):
+    print "On level " + entry + " there are " + str(len(kmerlist[entry].group0proList)) +" kmers in group0proList."
+    print "On level " + entry + " there are " + str(len(kmerlist[entry].group1proList)) +" kmers in group1proList."
 
 import blast_kmers
 slice = 0.0
-precision = blast_kmers.blast(kmerlist, svmlvl, "secreted", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths)
+precision = blast_kmers.blast(kmerlist, svmlvl, "cytoplas", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths, resultfile_info)
 
 #import plots
 #values = []

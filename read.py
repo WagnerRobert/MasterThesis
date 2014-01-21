@@ -62,3 +62,20 @@ def polyphobius(protein_name, paths):
 
     f.close()
     return tmr
+
+
+def resultfile(paths):
+    """
+    reads the result file, that contains names of the proteins and their predicted location
+    @rtype : dict with protein names as keys and their predicted location as values
+    """
+    result_info = {}
+
+    f = open( paths["resultfile"], 'r')
+    for line in f:
+        if not line.startswith("#"):
+            tmp = line.rstrip().split('\t')
+            result_info[tmp[0]] = (tmp[1], tmp[2])
+    f.close()
+
+    return result_info
