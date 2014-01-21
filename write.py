@@ -76,7 +76,7 @@ def uniprot(proteines, uniprot, overwrite):
 def multiple_fasta(proteinname_sequence, multiplefastapath, overwrite):
 
     filetext = ""
-    for i in range(len(proteinname_sequence)) :
+    for i in range(1,len(proteinname_sequence)) :
         name = proteinname_sequence[i][0]
         sequence = proteinname_sequence[i][1]
         filetext += ">" + name + "\n"
@@ -124,3 +124,18 @@ def mfasta_cleanup(query_protein_name, path, overwrite):
                         subprocess.call(['uniqueprot', '-i' ,os.path.join(path, file),'-o',os.path.join(path, query_protein_name + ".clean"), '-t', '20'])
                 else:
                     subprocess.call(['uniqueprot', '-i' ,os.path.join(path, file),'-o',os.path.join(path, query_protein_name + ".clean"), '-t', '20'])
+
+
+def mfasta_add_queryseq(query_protein_name,sequence, paths):
+    if os.path.isfile(os.path.join(paths["mfasta"], query_protein_name + ".clean")):
+        f = open(os.path.join(paths["mfasta"], query_protein_name + ".clean"), 'r')
+        first_header = f.readline()
+        f.close()
+        if query_protein_name in first_header:
+            pass
+        else:
+            with open(os.path.join(paths["mfasta"], query_protein_name + ".clean"), "+") as f:
+                old = f.read()
+                f.seek(0)
+                f.write(">" +  query_protein_name + "\n" + sequence + "\n" + old)
+    return None
