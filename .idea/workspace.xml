@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cleanup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blast_kmers.py" afterPath="$PROJECT_DIR$/blast_kmers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/read.py" afterPath="$PROJECT_DIR$/read.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/write.py" afterPath="$PROJECT_DIR$/write.py" />
     </list>
@@ -60,19 +57,8 @@
       <file leaf-file-name="readResults.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readResults.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="50" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="345">
+            <state line="5" column="69" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="quantListing.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/quantListing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="20" selection-start="1620" selection-end="2023" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2550">
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -80,7 +66,7 @@
       <file leaf-file-name="blast_kmers.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blast_kmers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="563" column="27" selection-start="17483" selection-end="17483" vertical-scroll-proportion="0.7814371" vertical-offset="8184" max-vertical-offset="9150">
+            <state line="569" column="12" selection-start="17932" selection-end="17932" vertical-scroll-proportion="0.7754491" vertical-offset="8276" max-vertical-offset="9150">
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -91,7 +77,7 @@
       <file leaf-file-name="read.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/read.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="22" selection-start="1947" selection-end="1947" vertical-scroll-proportion="0.0" vertical-offset="939" max-vertical-offset="1305">
+            <state line="24" column="4" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0" vertical-offset="328" max-vertical-offset="1305">
               <folding />
             </state>
           </provider>
@@ -100,7 +86,7 @@
       <file leaf-file-name="write.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="145" selection-start="4614" selection-end="4614" vertical-scroll-proportion="0.0" vertical-offset="1477" max-vertical-offset="1845">
+            <state line="108" column="121" selection-start="4116" selection-end="4116" vertical-scroll-proportion="0.0" vertical-offset="1368" max-vertical-offset="1845">
               <folding />
             </state>
           </provider>
@@ -143,8 +129,8 @@
         <option value="$PROJECT_DIR$/read.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/cleanup.py" />
-        <option value="$PROJECT_DIR$/blast_kmers.py" />
         <option value="$PROJECT_DIR$/write.py" />
+        <option value="$PROJECT_DIR$/blast_kmers.py" />
       </list>
     </option>
   </component>
@@ -487,7 +473,11 @@
       <created>1389647208726</created>
       <updated>1389647208726</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added Cellmemb and Cytoplas ploting, secreted is still missing">
+      <created>1390321194501</created>
+      <updated>1390321194502</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -514,6 +504,7 @@
     <frame x="-3" y="0" width="1926" height="953" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33586818" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -522,13 +513,12 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39751554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51304346" sideWeight="0.5002636" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51180124" sideWeight="0.49973643" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51180124" sideWeight="0.49973643" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33001244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -602,13 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readResults.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="50" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/lib/pymodules/python2.7/matplotlib/ticker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="289" column="8" selection-start="8411" selection-end="8411" vertical-scroll-proportion="0.0" vertical-offset="4108" max-vertical-offset="26865">
@@ -637,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="22" selection-start="1947" selection-end="1947" vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="21" selection-start="957" selection-end="957" vertical-scroll-proportion="0.0" vertical-offset="502" max-vertical-offset="1305">
@@ -660,23 +636,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/quantListing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="20" selection-start="1620" selection-end="2023" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="2550">
+        <state line="164" column="19" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.75409836" vertical-offset="2184" max-vertical-offset="2550">
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/readResults.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="69" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="145" selection-start="4614" selection-end="4614" vertical-scroll-proportion="0.0" vertical-offset="1477" max-vertical-offset="1845">
+        <state line="108" column="121" selection-start="4116" selection-end="4116" vertical-scroll-proportion="0.0" vertical-offset="1368" max-vertical-offset="1845">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="4" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0" vertical-offset="328" max-vertical-offset="1305">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blast_kmers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="563" column="27" selection-start="17483" selection-end="17483" vertical-scroll-proportion="0.7814371" vertical-offset="8184" max-vertical-offset="9150">
+        <state line="569" column="12" selection-start="17932" selection-end="17932" vertical-scroll-proportion="0.7754491" vertical-offset="8276" max-vertical-offset="9150">
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

@@ -568,7 +568,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             neg_matches = kmer_match(neg_kmerlisting, msa)
             transmembrane_regions = read.polyphobius(query_protein_name, paths)
 
-            create_plot(msa[0], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info)
+            create_plot(msa[query_protein_name], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info)
             #sys.exit("Stop.")
 
             # evaluation vor the query sequence
