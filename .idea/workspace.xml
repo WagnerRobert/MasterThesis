@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blast_kmers.py" afterPath="$PROJECT_DIR$/blast_kmers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/write.py" afterPath="$PROJECT_DIR$/write.py" />
     </list>
@@ -87,7 +85,7 @@
       <file leaf-file-name="write.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="31" selection-start="3654" selection-end="3654" vertical-scroll-proportion="0.47592068" vertical-offset="1347" max-vertical-offset="1935">
+            <state line="102" column="24" selection-start="3619" selection-end="3619" vertical-scroll-proportion="0.43342775" vertical-offset="1347" max-vertical-offset="1935">
               <folding />
             </state>
           </provider>
@@ -498,7 +496,11 @@
       <created>1390328436803</created>
       <updated>1390328436803</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="changing pipeline so it can run on rostlab machine">
+      <created>1390333045013</created>
+      <updated>1390333045013</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -681,7 +683,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="31" selection-start="3654" selection-end="3654" vertical-scroll-proportion="0.47592068" vertical-offset="1347" max-vertical-offset="1935">
+        <state line="102" column="24" selection-start="3619" selection-end="3619" vertical-scroll-proportion="0.43342775" vertical-offset="1347" max-vertical-offset="1935">
           <folding />
         </state>
       </provider>

@@ -100,7 +100,7 @@ def multiple_fasta(proteinname_sequence, multiplefastapath, overwrite):
 
 
 def multiple_sequence_alignment(mfasta_name, paths, overwrite):
-    msapath = paths["msa]"]
+    msapath = paths["msa"]
     mfastapath = paths["mfasta"]
     if not os.path.exists(msapath):
         os.makedirs(msapath)
