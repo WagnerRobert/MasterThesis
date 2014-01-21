@@ -65,7 +65,7 @@ for entry in sorted(kmerlist):
 
 import blast_kmers
 slice = 0.0
-precision = blast_kmers.blast(kmerlist, svmlvl, "cytoplas", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths, resultfile_info)
+precision = blast_kmers.blast(kmerlist, svmlvl, "secreted", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths, resultfile_info)
 
 #import plots
 #values = []
