@@ -577,12 +577,8 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             transmembrane_regions = read.polyphobius(query_protein_name, paths)
 
             hit = False
-            for name, sequence in msa:
-                if name == query_protein_name:
-                    create_plot((name,sequence), pos_matches, neg_matches, transmembrane_regions, entry, len(msa), resultfile_info, paths)
-                    hit = True
-                    break
-            print "No hit found!"
+            name, sequence = msa[0]
+            create_plot((name,sequence), pos_matches, neg_matches, transmembrane_regions, entry, len(msa), resultfile_info, paths)
             #sys.exit("Stop.")
 
             # evaluation vor the query sequence
