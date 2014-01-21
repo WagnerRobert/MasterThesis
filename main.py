@@ -35,6 +35,7 @@ paths["msa"]= sys.argv[9]
 paths["polyphobius"] = sys.argv[10]
 
 paths["pdf"]= sys.argv[11]
+paths["clustalo"] = sys.argv[12]
 
 protein2location = readResults.read(filepath_result)
 resultfile_info = read.resultfile(paths)

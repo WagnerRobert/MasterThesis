@@ -99,14 +99,16 @@ def multiple_fasta(proteinname_sequence, multiplefastapath, overwrite):
     return None
 
 
-def multiple_sequence_alignment(mfasta_name, mfastapath, msapath, overwrite):
+def multiple_sequence_alignment(mfasta_name, paths, overwrite):
+    msapath = paths["msa]"]
+    mfastapath = paths["mfasta"]
     if not os.path.exists(msapath):
         os.makedirs(msapath)
     if os.path.isfile(os.path.join(msapath, mfasta_name + ".msa")):
         if overwrite:
-            subprocess.call(['/home/delur/Desktop/master/test/clustalo', '-i' ,os.path.join(mfastapath, mfasta_name + ".clean"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--force', '--wrap=9999'])
+            subprocess.call([paths["clustalo"], '-i' ,os.path.join(mfastapath, mfasta_name + ".clean"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--force', '--wrap=9999'])
     else:
-        subprocess.call(['/home/delur/Desktop/master/test/clustalo', '-i' ,os.path.join(mfastapath, mfasta_name + ".clean"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--wrap=9999'])
+        subprocess.call([paths["clustalo"], '-i' ,os.path.join(mfastapath, mfasta_name + ".clean"),'-o',os.path.join(msapath, mfasta_name + ".msa"), '--outfmt=clu', '--wrap=9999'])
 
     return None
 

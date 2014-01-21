@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blast_kmers.py" afterPath="$PROJECT_DIR$/blast_kmers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/write.py" afterPath="$PROJECT_DIR$/write.py" />
     </list>
     <ignored path="MasterThesis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +31,7 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="27" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0" vertical-offset="534" max-vertical-offset="1335">
+            <state line="37" column="32" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -62,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blast_kmers.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="blast_kmers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blast_kmers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="579" column="47" selection-start="18389" selection-end="18389" vertical-scroll-proportion="0.7814371" vertical-offset="8424" max-vertical-offset="9300">
+            <state line="571" column="71" selection-start="17943" selection-end="17943" vertical-scroll-proportion="-4.40625" vertical-offset="8424" max-vertical-offset="9300">
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -82,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="write.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="write.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="150" selection-start="4923" selection-end="4923" vertical-scroll-proportion="0.0" vertical-offset="1527" max-vertical-offset="1905">
+            <state line="103" column="31" selection-start="3654" selection-end="3654" vertical-scroll-proportion="0.47592068" vertical-offset="1347" max-vertical-offset="1935">
               <folding />
             </state>
           </provider>
@@ -128,8 +130,8 @@
         <option value="$PROJECT_DIR$/read.py" />
         <option value="$PROJECT_DIR$/cleanup.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/write.py" />
         <option value="$PROJECT_DIR$/blast_kmers.py" />
+        <option value="$PROJECT_DIR$/write.py" />
       </list>
     </option>
   </component>
@@ -367,7 +369,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="MasterThesis" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="$USER_HOME$/Desktop/master/Data/output/arch/result.txt $USER_HOME$/Desktop/master/tree.txt $USER_HOME$/Desktop/master/Data/output/arch/kmerweights $USER_HOME$/Desktop/master/prepared/arch $USER_HOME$/Desktop/master/uniprot/arch $USER_HOME$/Desktop/master/blast/arch $USER_HOME$/Desktop/master/fasta/arch $USER_HOME$/Desktop/master/mfasta/arch $USER_HOME$/Desktop/master/msa/arch $USER_HOME$/Desktop/master/polyphobius /mnt/home/wagnerr/master/pdfs" />
+      <option name="PARAMETERS" value="$USER_HOME$/Desktop/master/Data/output/arch/result.txt $USER_HOME$/Desktop/master/tree.txt $USER_HOME$/Desktop/master/Data/output/arch/kmerweights $USER_HOME$/Desktop/master/prepared/arch $USER_HOME$/Desktop/master/uniprot/arch $USER_HOME$/Desktop/master/blast/arch $USER_HOME$/Desktop/master/fasta/arch $USER_HOME$/Desktop/master/mfasta/arch $USER_HOME$/Desktop/master/msa/arch $USER_HOME$/Desktop/master/polyphobius /mnt/home/wagnerr/master/pdfs $USER_HOME$/Desktop/master/test/clustalo" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -492,7 +494,11 @@
       <created>1390328224371</created>
       <updated>1390328224371</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="changing pipeline so it can run on rostlab machine">
+      <created>1390328436803</created>
+      <updated>1390328436803</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -528,7 +534,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39751554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51304346" sideWeight="0.5002636" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51180124" sideWeight="0.49973643" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51180124" sideWeight="0.49973643" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33001244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -650,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/write.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="150" selection-start="4923" selection-end="4923" vertical-scroll-proportion="0.0" vertical-offset="1527" max-vertical-offset="1905">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/quantListing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="164" column="19" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0" vertical-offset="1719" max-vertical-offset="2535">
@@ -664,19 +663,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/blast_kmers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="571" column="71" selection-start="17943" selection-end="17943" vertical-scroll-proportion="-4.40625" vertical-offset="8424" max-vertical-offset="9300">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="27" selection-start="1521" selection-end="1521" vertical-scroll-proportion="0.0" vertical-offset="534" max-vertical-offset="1335">
+        <state line="37" column="32" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blast_kmers.py">
+    <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="579" column="47" selection-start="18389" selection-end="18389" vertical-scroll-proportion="0.7814371" vertical-offset="8424" max-vertical-offset="9300">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state line="103" column="31" selection-start="3654" selection-end="3654" vertical-scroll-proportion="0.47592068" vertical-offset="1347" max-vertical-offset="1935">
+          <folding />
         </state>
       </provider>
     </entry>

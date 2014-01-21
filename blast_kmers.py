@@ -569,7 +569,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
 
             write.multiple_fasta(proteinname_sequence, multiplefastapath, overwrite)
             write.mfasta_cleanup(query_protein_name, paths["mfasta"], overwrite)
-            write.multiple_sequence_alignment(query_protein_name,paths["mfasta"], paths["msa"], overwrite)
+            write.multiple_sequence_alignment(query_protein_name,paths, overwrite)
             msa = read.multiple_sequence_alignment(query_protein_name, paths)
             pos_matches = kmer_match(pos_kmerlisting, msa)
             neg_matches = kmer_match(neg_kmerlisting, msa)
