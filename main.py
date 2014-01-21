@@ -54,7 +54,7 @@ prepareOutput.prepare(filepath_kmerweights, filepath_prepared)
 
 import quantListing
 svmlvl= "SVM_0"
-quant =0.1
+quant =0.3
 kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
 
 
