@@ -34,6 +34,8 @@ paths["mfasta"]= sys.argv[8]
 paths["msa"]= sys.argv[9]
 paths["polyphobius"] = sys.argv[10]
 
+paths["pdf"]= sys.argv[11]
+
 protein2location = readResults.read(filepath_result)
 resultfile_info = read.resultfile(paths)
 
@@ -50,7 +52,7 @@ prepareOutput.prepare(filepath_kmerweights, filepath_prepared)
 #calcQuant.calc(filepath_prepared, protein2location, tree)
 
 import quantListing
-svmlvl= "SVM_1"
+svmlvl= "SVM_0"
 quant =0.1
 kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
 

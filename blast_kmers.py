@@ -349,7 +349,7 @@ def getFeatures(entry):
     return features
 
 
-def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_regions, entry, numProfileProteins, resultfile_info):
+def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_regions, entry, numProfileProteins, resultfile_info, paths):
     name = query_protein_sequence[0]
     sequence = query_protein_sequence[1]
 
@@ -477,7 +477,7 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
     plt.xlim( plt.xlim()[0], len(seq_noGap)+1)
     #plt.xlim( (i*200,i*200 + 200))
     plt.tight_layout()
-    plt.savefig("/home/delur/Dropbox/MasterThesis/MSA/cytoplas/" + name + ".pdf")
+    plt.savefig(os.path.join(paths["pdf"], name + ".pdf"))
 
 
 
@@ -505,8 +505,15 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             #and get the positions on wich kmers match
 
             overwrite = False #if override is True, all existent files will be freshly generated
-            pos_kmerlisting = kmerlist[svm].group0proList #pos_kmerlisting contains all kmers that will be searched for
-            neg_kmerlisting = kmerlist[svm].group0conList
+
+            if location in tree[0]:
+                pos_kmerlisting = kmerlist[svm].group0proList #pos_kmerlisting contains all kmers that will be searched for
+                neg_kmerlisting = kmerlist[svm].group0conList
+            elif location in tree[1]:
+                pos_kmerlisting = kmerlist[svm].group1proList #pos_kmerlisting contains all kmers that will be searched for
+                neg_kmerlisting = kmerlist[svm].group1conList
+            else:
+                sys.exit("Did not find location in tree file.")
             query_protein_name, entry, query_sequence, profileProteins, qtmr, qkmers = process_query_protein(query_protein,uniprot, overwrite, fasta, pos_kmerlisting, blast, slice)
             proteinname_sequence =[]
             proteinname_sequence.append( (query_protein_name, query_sequence) )
@@ -568,7 +575,7 @@ def blast(kmerlist, svm, location, tree, protein2location, uniprot, slice,blast,
             neg_matches = kmer_match(neg_kmerlisting, msa)
             transmembrane_regions = read.polyphobius(query_protein_name, paths)
 
-            create_plot(msa[query_protein_name], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info)
+            create_plot(msa[query_protein_name], pos_matches, neg_matches, transmembrane_regions, entry, len(profileProteins), resultfile_info, paths)
             #sys.exit("Stop.")
 
             # evaluation vor the query sequence
