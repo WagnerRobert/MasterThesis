@@ -29,7 +29,7 @@
       <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="10" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.4262295" vertical-offset="534" max-vertical-offset="1350">
+            <state line="65" column="18" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.795082" vertical-offset="534" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -524,7 +524,11 @@
       <created>1390339845303</created>
       <updated>1390339845303</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="changing pipeline so it can run on rostlab machine">
+      <created>1390340697367</created>
+      <updated>1390340697367</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -707,7 +711,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="10" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.4262295" vertical-offset="534" max-vertical-offset="1350">
+        <state line="65" column="18" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.795082" vertical-offset="534" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>

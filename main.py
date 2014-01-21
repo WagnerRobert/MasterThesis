@@ -53,7 +53,7 @@ prepareOutput.prepare(filepath_kmerweights, filepath_prepared)
 #calcQuant.calc(filepath_prepared, protein2location, tree)
 
 import quantListing
-svmlvl= "SVM_0"
+svmlvl= "SVM_1"
 quant =0.3
 kmerlist = quantListing.doList(filepath_prepared, protein2location, tree, quant)
 
@@ -65,7 +65,7 @@ for entry in sorted(kmerlist):
 
 import blast_kmers
 slice = 0.0
-precision = blast_kmers.blast(kmerlist, svmlvl, "cellmemb", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths, resultfile_info)
+precision = blast_kmers.blast(kmerlist, svmlvl, "cytoplas", tree[svmlvl], protein2location, uniprot, slice, blast, fastapath, multiplefastapath, paths, resultfile_info)
 
 #import plots
 #values = []
