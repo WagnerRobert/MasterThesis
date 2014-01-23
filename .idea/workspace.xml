@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571526f4-2f71-405e-8e43-ebc6e3a86a62" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blast_kmers.py" afterPath="$PROJECT_DIR$/blast_kmers.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MasterThesis.iws" />
@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="10" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.4262295" vertical-offset="534" max-vertical-offset="1350">
+            <state line="56" column="10" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -38,7 +38,7 @@
       <file leaf-file-name="Branch.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Branch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="10" selection-start="79" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="7" column="10" selection-start="79" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -47,7 +47,7 @@
       <file leaf-file-name="quantListing.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/quantListing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="164" column="19" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0" vertical-offset="1719" max-vertical-offset="2535">
+            <state line="164" column="19" selection-start="5255" selection-end="5255" vertical-scroll-proportion="0.0" vertical-offset="2460" max-vertical-offset="2550">
               <folding />
             </state>
           </provider>
@@ -56,19 +56,17 @@
       <file leaf-file-name="readResults.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/readResults.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="69" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+            <state line="5" column="69" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blast_kmers.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="blast_kmers.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blast_kmers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="581" column="12" selection-start="18526" selection-end="18526" vertical-scroll-proportion="-7.6875" vertical-offset="8469" max-vertical-offset="9300">
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state line="424" column="124" selection-start="11827" selection-end="11827" vertical-scroll-proportion="0.73007715" vertical-offset="5717" max-vertical-offset="9555">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,7 +83,7 @@
       <file leaf-file-name="write.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/write.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="10" selection-start="192" selection-end="192" vertical-scroll-proportion="53.25" vertical-offset="1839" max-vertical-offset="2160">
+            <state line="11" column="10" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2190">
               <folding />
             </state>
           </provider>
@@ -128,8 +126,8 @@
         <option value="$PROJECT_DIR$/read.py" />
         <option value="$PROJECT_DIR$/cleanup.py" />
         <option value="$PROJECT_DIR$/write.py" />
-        <option value="$PROJECT_DIR$/blast_kmers.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/blast_kmers.py" />
       </list>
     </option>
   </component>
@@ -202,12 +200,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="options.lastSelected" value="preferences.keymap" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -375,8 +373,8 @@
       <method />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.legend" />
+      <item index="0" class="java.lang.String" itemvalue="Python.legend" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -540,7 +538,11 @@
       <created>1390346065678</created>
       <updated>1390346065678</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="changing pipeline so it can run on rostlab machine">
+      <created>1390346731636</created>
+      <updated>1390346731636</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -567,7 +569,6 @@
     <frame x="-3" y="0" width="1926" height="953" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33586818" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -576,12 +577,13 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39751554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51304346" sideWeight="0.5002636" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51180124" sideWeight="0.49973643" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51180124" sideWeight="0.49973643" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33001244" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -601,9 +603,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18808778" sideWeight="0.42512077" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57384986" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -627,6 +629,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/write.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="10" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///usr/lib/pymodules/python2.7/matplotlib/colors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="367" column="0" selection-start="13303" selection-end="13303" vertical-scroll-proportion="0.0" vertical-offset="5184" max-vertical-offset="19230" />
@@ -644,30 +653,22 @@
     </entry>
     <entry file="file:///usr/lib/python2.7/subprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="523" column="0" selection-start="16674" selection-end="16674" vertical-scroll-proportion="0.0" vertical-offset="7717" max-vertical-offset="24120">
-          <folding />
-        </state>
+        <state line="523" column="0" selection-start="16674" selection-end="16674" vertical-scroll-proportion="0.0" vertical-offset="7717" max-vertical-offset="24120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/legend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="25" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1050">
-          <folding />
-        </state>
+        <state line="48" column="25" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="1050" />
       </provider>
     </entry>
     <entry file="file:///usr/lib/pymodules/python2.7/matplotlib/ticker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="8" selection-start="8411" selection-end="8411" vertical-scroll-proportion="0.0" vertical-offset="4108" max-vertical-offset="26865">
-          <folding />
-        </state>
+        <state line="289" column="8" selection-start="8411" selection-end="8411" vertical-scroll-proportion="0.0" vertical-offset="4108" max-vertical-offset="26865" />
       </provider>
     </entry>
     <entry file="file:///usr/lib/pymodules/python2.7/matplotlib/axis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1399" column="0" selection-start="48035" selection-end="48035" vertical-scroll-proportion="0.0" vertical-offset="20653" max-vertical-offset="31185">
-          <folding />
-        </state>
+        <state line="1399" column="0" selection-start="48035" selection-end="48035" vertical-scroll-proportion="0.0" vertical-offset="20653" max-vertical-offset="31185" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Branch.py">
@@ -679,9 +680,7 @@
     </entry>
     <entry file="file:///usr/lib/pymodules/python2.7/matplotlib/pyplot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1437" column="0" selection-start="44197" selection-end="44197" vertical-scroll-proportion="-0.9836066" vertical-offset="21555" max-vertical-offset="52545">
-          <folding />
-        </state>
+        <state line="1437" column="0" selection-start="44197" selection-end="44197" vertical-scroll-proportion="-0.9836066" vertical-offset="21555" max-vertical-offset="52545" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/readResults.py">
@@ -707,23 +706,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="192" selection-end="192" vertical-scroll-proportion="53.25" vertical-offset="1839" max-vertical-offset="2160">
+        <state line="11" column="10" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="2190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="10" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blast_kmers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="581" column="12" selection-start="18526" selection-end="18526" vertical-scroll-proportion="-7.6875" vertical-offset="8469" max-vertical-offset="9300">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="10" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.4262295" vertical-offset="534" max-vertical-offset="1350">
+        <state line="424" column="124" selection-start="11827" selection-end="11827" vertical-scroll-proportion="0.73007715" vertical-offset="5717" max-vertical-offset="9555">
           <folding />
         </state>
       </provider>

@@ -365,7 +365,6 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
             for j in range(start, end):
                 neg_count[j] += 1
 
-
     pos_count_noGaps = []
     neg_count_noGaps = []
     seq_noGap = ""
@@ -382,6 +381,29 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
     for i in range(len(pos_count_noGaps)):
         pos_count_noGaps[i] = pos_count_noGaps[i] * 100 / numProfileProteins
         neg_count_noGaps[i] = neg_count_noGaps[i] * 100 / numProfileProteins
+
+    positions_above_50 = []
+    for i in range(len(pos_count_noGaps)):
+        if pos_count_noGaps[i] >= 50:
+            positions_above_50.append(i)
+
+    length = 1
+    position_length_list = []
+    for i in range(1,len(positions_above_50)):
+        if positions_above_50[i-1] +1 == positions_above_50[i]:
+            length += 1
+        else:
+            position_length_list.append(length)
+            length = 1
+
+    avg_len = 0.0
+    for i in range(position_length_list):
+        avg_len += position_length_list[i]
+    avg_len = avg_len / float(len(position_length_list))
+
+    print "Average signal length is: " + str(avg_len)
+
+
     import matplotlib.pyplot as plt
 
     x = range(1, len(seq_noGap)+1)
@@ -400,7 +422,7 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
             long_name = protein
             location = resultfile_info[protein][0]
             confidence = resultfile_info[protein][1]
-    plt.title(long_name + "|" + location + "|"+ confidence +"|" + str(numProfileProteins) + " Profile Proteins")
+    plt.title(long_name + "|" + location + "|"+ confidence +"|" + str(numProfileProteins) + " PPs|" + avg_len +" avg len pos")
     ax = plt.gca()
 
 
