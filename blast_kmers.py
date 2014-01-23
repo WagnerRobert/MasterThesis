@@ -397,7 +397,7 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
             length = 1
 
     avg_len = 0.0
-    for i in range(position_length_list):
+    for i in range(len(position_length_list)):
         avg_len += position_length_list[i]
     avg_len = avg_len / float(len(position_length_list))
 
