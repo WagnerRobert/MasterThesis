@@ -65,7 +65,7 @@
       <file leaf-file-name="blast_kmers.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blast_kmers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="399" column="44" selection-start="11044" selection-end="11044" vertical-scroll-proportion="0.3637532" vertical-offset="5627" max-vertical-offset="9555">
+            <state line="424" column="114" selection-start="11822" selection-end="11822" vertical-scroll-proportion="0.8457584" vertical-offset="5627" max-vertical-offset="9555">
               <folding />
             </state>
           </provider>
@@ -546,7 +546,11 @@
       <created>1390476684885</created>
       <updated>1390476684885</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="adding average signal length calculation">
+      <created>1390476770576</created>
+      <updated>1390476770576</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -725,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blast_kmers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="44" selection-start="11044" selection-end="11044" vertical-scroll-proportion="0.3637532" vertical-offset="5627" max-vertical-offset="9555">
+        <state line="424" column="114" selection-start="11822" selection-end="11822" vertical-scroll-proportion="0.8457584" vertical-offset="5627" max-vertical-offset="9555">
           <folding />
         </state>
       </provider>
