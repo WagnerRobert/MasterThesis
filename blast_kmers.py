@@ -422,7 +422,7 @@ def create_plot(query_protein_sequence, pos_matches, neg_matches, transmembrane_
             long_name = protein
             location = resultfile_info[protein][0]
             confidence = resultfile_info[protein][1]
-    plt.title(long_name + "|" + location + "|"+ confidence +"|" + str(numProfileProteins) + " PPs|" + str(avg_len) +" avg len pos")
+    plt.title(long_name + "|" + location + "|"+ confidence +"|" + str(numProfileProteins) + " PPs|" + "%.1f" % avg_len +" avg len pos")
     ax = plt.gca()
 
 
